@@ -1,10 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 import App from './App.js'
-
+import Cart from "./cart";
 const myelem = <h1>hello react</h1>;
 ReactDOM.render(
-  <App />,
+  <Router>
+    <nav>
+    <Link to="/" className='nav-item'>Home</Link>
+    <Link to="/cart" className='nav-item'>Cart</Link>
+    </nav>
+    <Routes>
+                 <Route exact path='/' element={<App />}></Route>
+                 <Route exact path='cart' element={<Cart />}></Route>
+                
+          </Routes>
+
+  </Router>,
   document.getElementById('root')
 );
 

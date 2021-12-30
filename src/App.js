@@ -1,6 +1,9 @@
 import React from "react";
 import Server from "./server";
 import Menu from "./menu";
+import Cart from "./cart";
+import { Link } from "react-router-dom";
+import './App.css';
 class App extends React.Component{
     server = new Server();
     componentDidMount() {

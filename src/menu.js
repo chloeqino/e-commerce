@@ -1,13 +1,18 @@
 import React from "react";
+import Server from "./server";
 class Item extends React.Component{
     constructor(props){
         super(props)
     }
+    orderItem=()=>{
+        console.log(this.props.id);
+    }
     render(){
         return (
-            <div id = {this.props.id}>
+            <div id = {this.props.id} className="item">
                 <h3>{this.props.title}</h3>
                 {this.props.price}
+                <button onClick={this.orderItem}>Order</button>
             </div>
         );
     }
@@ -22,6 +27,7 @@ class Menu extends React.Component{
         console.log(Object.keys(this.props.resources));
         this.items = this.renderItems();
         console.log(this.items);
+        
     }
     renderItems(){
        return Object.keys(this.props.resources).map(
