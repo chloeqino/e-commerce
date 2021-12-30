@@ -11,6 +11,11 @@ class Server{
             "id":"item01",
             "title":"Thai Tea",
             "price":3.5
+        },
+        "item02":{
+            "id":"item02",
+            "title":"Green Tea",
+            "price":2
         }
     };
     
@@ -21,27 +26,24 @@ class Server{
         return this.items;
     }
     emptyCart(){
-        this.myStorage.setItem("cart","{}");
+        this.myStorage.setItem("cart","[]");
     }
     get CartItems(){
         return JSON.parse(this.myStorage.getItem("cart"));
     }
-    addtoCart(id,qty){
+
+    //receive an object denoting an order and add it to the local storage
+    addtoCart(orderitem){
         if(!this.myStorage.getItem('cart')){
-            this.myStorage.setItem("cart","{}");
+            this.myStorage.setItem("cart","[]");
         }
-        let o = {};
-        o["id"] = id;
-        o["qty"] = qty;
+        let o = orderitem;
+        
         console.log(o);
         console.log(this.myStorage.getItem('cart'));
         let currentorders = JSON.parse(this.myStorage.getItem('cart'));
         
-        if(currentorders[id]){
-            currentorders[id].qty = currentorders[id].qty+qty;
-        }else{
-            currentorders[id] = o;
-        }
+        currentorders.push(o);
        this.myStorage.setItem("cart",JSON.stringify(currentorders));
     }
 }   

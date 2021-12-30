@@ -1,8 +1,10 @@
 import React from "react";
 import Server from "./server";
+import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 class Item extends React.Component{
     constructor(props){
         super(props)
+        this.itemUrl = '/orderdetail/'+this.props.id;
     }
     orderItem=()=>{
         console.log(this.props.id);
@@ -12,7 +14,7 @@ class Item extends React.Component{
             <div id = {this.props.id} className="item">
                 <h3>{this.props.title}</h3>
                 {this.props.price}
-                <button onClick={this.orderItem}>Order</button>
+                <Link to= {this.itemUrl} key="this.props.id">order</Link>
             </div>
         );
     }
