@@ -18,9 +18,26 @@ class Server{
             "price":2
         }
     };
-    
+    toppings = [
+        {
+            "name":"grass jelly",
+            "id":"t0"
+        },
+        {
+            "name":"pearl",
+            "id":'t1'
+        },
+        {
+            "name":"sago",
+            "id":"t2"
+        }
+
+    ];
      logStorage(){
         console.log(this.myStorage);
+    }
+    get Toppings(){
+        return this.toppings;
     }
     get Items(){
         return this.items;

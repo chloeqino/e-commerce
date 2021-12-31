@@ -1,7 +1,36 @@
+:root{
+    --bobapink:rgb(229, 160, 160);
+}
+html{
+    font-family: sans-serif;
+}
 .menu{
     display: flex;
     flex-direction: row;
 }
 .item{
     padding: 12px;
+}
+.topping{
+    display: inline-table;
+    margin-left: 4px;
+}
+
+.topping  input{
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+.topping label{
+    display: inline-table;
+    padding: 12px;
+    color: var(--bobapink);
+    border: 1px solid;
+    margin-right: 4px;
+    
+}
+input:checked+label{
+
+    background-color: var(--bobapink);
+    color:white;
 }
