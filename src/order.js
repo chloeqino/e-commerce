@@ -25,8 +25,11 @@ export default function Order(){
      <input type="hidden" name="itemId" value={itemid} />
          {renderToppings()}<br />
     <label htmlFor="qty">quantity: </label><input type="number" min="1" step="1" value={qty} id="qty" onChange = {e=>{
-        
-        setQty(e.target.value);
+       let v =e.target.value;
+       if(v<1 & v!=''&v!=null){
+           v = 1;
+       }
+        setQty(v);
         
     }} onKeyPress={(event) => {
         if (!/[0-9]/.test(event.key)) {
