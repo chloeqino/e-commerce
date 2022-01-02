@@ -33,6 +33,28 @@ class Server{
         }
 
     ];
+    sugar_levels = [
+     {
+         "value": 100,
+         "id":"sugar100"
+     },
+     {
+         "value":70,
+         "id":"sugar70"
+     },
+     {
+        "value":50,
+        "id":"sugar50"
+    },
+    {
+        "value":30,
+        "id":"sugar50"
+    },
+    {
+        "value":0,
+        "id":"sugar0"
+    },
+    ];
      logStorage(){
         console.log(this.myStorage);
     }
