@@ -66,7 +66,9 @@ export default function Order(){
         o["toppings"] = new Server().Toppings.filter((e,i)=>{
             return toppings_checked[i];
         });
-        o["qty"] = qty;
+        for(let i = 0; i<Math.max(1,qty)+1-1;i++ ){
+            new Server().addtoCart(o);
+        }
         console.log(JSON.stringify(o));
 
     }

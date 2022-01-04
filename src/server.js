@@ -1,6 +1,6 @@
 class Server{
     myStorage = window.localStorage;
-    
+   
     items = {
         "item00":{
             "id":"item00",
@@ -48,7 +48,7 @@ class Server{
     },
     {
         "value":30,
-        "id":"sugar50"
+        "id":"sugar30"
     },
     {
         "value":0,
@@ -68,16 +68,35 @@ class Server{
         this.myStorage.setItem("cart","[]");
     }
     get CartItems(){
-        return JSON.parse(this.myStorage.getItem("cart"));
+        if(this.myStorage.getItem("cart")){
+        let items = JSON.parse(this.myStorage.getItem("cart"));
+        for(let i = 0; i< items.length;i++)
+        {
+            console.log(items[i]);
+        //items[i]["toppings"] = JSON.parse(items[i]["toppings"]);
+        items[i]["sugar"] = Number(items[i]["sugar"]);
+        }
+        return items;
+        }
+       return [];
     }
-
+    get OrderId(){
+        let n = 0;
+        if(!this.myStorage.getItem("orderNumber"))
+        {
+             this.myStorage.setItem("orderNumber","0");
+        }
+        n = Number(this.myStorage.getItem("orderNumber"))+1;
+        this.myStorage.setItem("orderNumber",n.toString());
+        return "order"+n;
+    }
     //receive an object denoting an order and add it to the local storage
     addtoCart(orderitem){
         if(!this.myStorage.getItem('cart')){
             this.myStorage.setItem("cart","[]");
         }
         let o = orderitem;
-        
+        o["id"] = this.OrderId;
         console.log(o);
         console.log(this.myStorage.getItem('cart'));
         let currentorders = JSON.parse(this.myStorage.getItem('cart'));

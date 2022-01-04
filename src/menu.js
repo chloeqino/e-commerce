@@ -29,6 +29,7 @@ class Menu extends React.Component{
         console.log(Object.keys(this.props.resources));
         this.items = this.renderItems();
         console.log(this.items);
+        //new Server().emptyCart();
         
     }
     renderItems(){
