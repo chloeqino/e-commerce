@@ -49,4 +49,5 @@ input:checked+label{
 .cartitem{
     margin-bottom: 10px;
     display: table;
+    transition-duration: 0.2s;
 }

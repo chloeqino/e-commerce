@@ -11,7 +11,7 @@ class Item extends React.Component{
     }
     render(){
         return (
-            <div id = {this.props.id} className="item">
+            <div id = {this.props.id} className="item" key={this.props.id}>
                 <h3>{this.props.title}</h3>
                 {this.props.price}
                 <Link to= {this.itemUrl} key="this.props.id">order</Link>

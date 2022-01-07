@@ -67,6 +67,14 @@ class Server{
     emptyCart(){
         this.myStorage.setItem("cart","[]");
     }
+    deleteCartItem(index){
+        let items = this.myStorage.getItem("cart");
+        items = JSON.parse(items);
+        items = items.filter((e,i)=>{
+            return i!=index;
+        });
+        this.myStorage.setItem("cart",JSON.stringify(items));
+    }
     get CartItems(){
         if(this.myStorage.getItem("cart")){
         let items = JSON.parse(this.myStorage.getItem("cart"));

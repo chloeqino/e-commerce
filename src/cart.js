@@ -7,14 +7,20 @@ import Server from "./server";
          this.state = {items:this.server.CartItems};
          console.log("item"+this.state.items);
      }
+     deleteitem(i){
+        console.log("index"+i);
+        this.server.deleteCartItem(i);
+        this.setState({items:this.server.CartItems});
+     }
      renderCartItems(){
          if(this.state.items.length>0){
-        return this.state.items.map((e)=>{
+        return this.state.items.map((e,i)=>{
             return (<div id={e.id} className="cartitem">
                 <h3>{this.server.Items[e.itemid].title}</h3>
                 <p>Toppings:{e.toppings.map((e=>{
-                    return <span className="topping">{e.name}</span>;
+                    return <span className="topping" key={e.id}>{e.name}</span>;
                 }))}</p>
+                <button onClick={()=>this.deleteitem(i)}>delete</button>
             </div>)
         });}
         return "nothing here";
