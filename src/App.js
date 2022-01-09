@@ -1,7 +1,7 @@
 import React from "react";
 import Server from "./server";
 import Menu from "./menu";
-import Cart from "./cart";
+
 import { Link } from "react-router-dom";
 import './App.css';
 class App extends React.Component{
@@ -10,9 +10,11 @@ class App extends React.Component{
         console.log(Object.keys(this.server.items));
     }
     render(){
-       return <section>Hello React
-     <h2>Menu</h2>
-         <Menu resources = {this.server.items} />
+       return <section id="hero">
+           <div className="wrapper">
+     <h1>Boba</h1>
+     <Link to="/menu" className='menuBtn'>Menu</Link>
+     </div>
        </section>;
     }
 }

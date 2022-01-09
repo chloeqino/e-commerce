@@ -16,6 +16,11 @@ class Server{
             "id":"item02",
             "title":"Green Tea",
             "price":2
+        },
+        "item03":{
+            "id":"item03",
+            "title":"Coconut Milk Tea",
+            "price":4
         }
     };
     toppings = [
@@ -64,14 +69,29 @@ class Server{
     get Items(){
         return this.items;
     }
+    EditItem(orderid, sugar,toppings){
+      let index = -1;
+      let newcart = JSON.parse(this.myStorage.getItem('cart'));
+      let oldcart = JSON.parse(this.myStorage.getItem('cart'));
+      for(let i = 0;i<oldcart.length;i++){
+          if(oldcart[i].id==orderid){
+              newcart[i].toppings = toppings;
+              newcart[i].sugar = String(sugar);
+              break;
+          }
+      }
+      this.myStorage.setItem("cart",JSON.stringify(newcart));
+      
+    }
     emptyCart(){
         this.myStorage.setItem("cart","[]");
+        this.myStorage.setItem("orderNumber","0");
     }
     deleteCartItem(index){
         let items = this.myStorage.getItem("cart");
         items = JSON.parse(items);
         items = items.filter((e,i)=>{
-            return i!=index;
+            return e.id!=index;
         });
         this.myStorage.setItem("cart",JSON.stringify(items));
     }
@@ -80,7 +100,7 @@ class Server{
         let items = JSON.parse(this.myStorage.getItem("cart"));
         for(let i = 0; i< items.length;i++)
         {
-            console.log(items[i]);
+            //console.log(items[i]);
         //items[i]["toppings"] = JSON.parse(items[i]["toppings"]);
         items[i]["sugar"] = Number(items[i]["sugar"]);
         }

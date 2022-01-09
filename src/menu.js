@@ -24,29 +24,31 @@ class Menu extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-          items: Array()
+          items: new Server().Items
         };
-        console.log(Object.keys(this.props.resources));
+        
         this.items = this.renderItems();
         console.log(this.items);
         //new Server().emptyCart();
         
     }
     renderItems(){
-       return Object.keys(this.props.resources).map(
+       return Object.keys(this.state.items).map(
            (e) =>{
-               return <Item id = {this.props.resources[e].id} title = {this.props.resources[e].title} price = {this.props.resources[e].price} />
+               return <Item id = {this.state.items[e].id} title = {this.state.items[e].title} price = {this.state.items[e].price} />
            }
        );
     }
     render(){
         return (
-            <div className="menu">
+            <section id="menu">
             {
-                this.items
+                <div className="wrapper">
+                {this.items}
+                </div>
             }
             
-            </div>
+            </section>
         );
     }
 }

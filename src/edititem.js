@@ -1,31 +1,39 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router,Routes, Route, Link,useParams } from 'react-router-dom';
+import { BrowserRouter as Router,Routes, Route, Link,useParams, useNavigate} from 'react-router-dom';
 
 import Server from "./server";
 
+import Cart from './cart';
+export default function EditOrder(){
 
-export default function Order(){
-
-    
-   let id = useParams().itemid;
-   const [itemid,setId] = useState(id);
-   const [qty,setQty] = useState(1);
-   const [toppings_checked,setChecked] = useState(Array(new Server().Toppings.length).fill(false));
-   const [sugar,setSugar] = useState(100);
+    let navigate = useNavigate();
+   let id = useParams().orderid;
+   let myserver = new Server();
+   let o = myserver.CartItems.filter((e)=>{
+       return e.id==id;
+   })[0];
+   console.log(o);
+   
+   let itemname = myserver.Items[o.itemid].title;
+   console.log();
+   const [toppings_checked,setChecked] = useState(o.toppings.map((e)=>{
+       return e.id;
+   }));
+   const [sugar,setSugar] = useState(o.sugar);
    const [price,setPrice] = useState(updatePrice());
    let c = toppings_checked;
   
    //setsetChecked(c);
    //console.log(toppings_checked);
   
-    let iteminfo = new Server().Items[itemid]; 
+   
     function toggleSugar(e){
         setSugar(e.target.value);
         console.log(e.target.value);
     }
     function updatePrice(){
-        return (new Server().Items[id].price+0.5*toppings_checked.filter(Boolean).length)*qty;
+        //return (new Server().Items[id].price+0.5*toppings_checked.filter(Boolean).length)*qty;
     }  
     function renderSugarLevels(){
     return new Server().sugar_levels.map(
@@ -42,12 +50,23 @@ export default function Order(){
             (e,i)=>{
                 //console.log(i);
                 return (<div className='topping'><input type = "checkbox" key = {e.id} id={e.id} name={e.id} value={e.name} className='toppingoption'
-                defaultChecked = {toppings_checked[i]} onChange = {event=>{
+                defaultChecked = {toppings_checked.includes(e.id)} onChange = {event=>{
                     let checks = toppings_checked;
                     
-                    checks[i] = !checks[i];
+                    if(event.target.checked){
+                        if(!checks.includes(e.id)){
+                        checks.push(e.id);
+                        }
+                    }else{
+                        let rindex = checks.indexOf(e.id)
+                            if (rindex>-1){
+                                checks.splice(rindex,1);
+                            }
+                        }
+                    
                     //console.log(checks);
                     setChecked(checks);
+
                     //console.log(toppings_checked);
                     setPrice(updatePrice());
                 }} /><label htmlFor={e.id}>{e.name}</label></div>);
@@ -56,52 +75,40 @@ export default function Order(){
     }
     function handleSubmit(e){
         e.preventDefault();
-        
-        console.log(Math.max(1,qty)+1);
         console.log("toppings "+toppings_checked);
-        console.log("sugar "+sugar);
-        let o = {};
-        o["itemid"] = itemid;
-        o["sugar"] =sugar;
-        o["toppings"] = new Server().Toppings.filter((e,i)=>{
-            return toppings_checked[i];
+        
+        
+        let updatesugar =sugar;
+        let updatetoppings = new Server().Toppings.filter((e,i)=>{
+            return toppings_checked.includes(e.id);
         });
+        console.log(o);
+        myserver.EditItem(id,updatesugar,updatetoppings);
+        navigate("/cart");
+
+        /*
+       
+        console.log("sugar "+sugar);
+        
         for(let i = 0; i<Math.max(1,qty)+1-1;i++ ){
             new Server().addtoCart(o);
         }
         console.log(JSON.stringify(o));
+        */
 
     }
      return (<main>
          <div className='wrapper'>
-         <h1>{iteminfo.title}</h1>
+             <Link to="/cart" id="back2cart"> &lt;- back to cart</Link>
+         <h1>{itemname}</h1>
      
      <form onSubmit={handleSubmit}>
-     <input type="hidden" name="itemId" value={itemid} />
+     
      
     
          <p>
-    <label htmlFor="qty">quantity: </label><input type="number" min="1" step="1" value={qty} id="qty" onChange = {e=>{
-       let v =e.target.value;
-       if(v<1&v!=null&v!=''){
-           v = 1;
-       }
-      if(v==''){
-          setQty('');
-          
-          return;
-          console.log("empty");
-      }
-         
-        setQty(Number(v));
-        
-        console.log(price);
-        
-    }} onKeyPress={(event) => {
-        if (!/[0-9]/.test(event.key)) {
-          event.preventDefault();
-        }
-      }} />
+   
+     
       </p>
       <p>
           Sugar level: <br/>
@@ -109,10 +116,11 @@ export default function Order(){
       </p>
       <p> select toppings: (Optional)<br />
          {renderToppings()}</p>
-      <input type="submit" value="Order" />
+      <input type="submit" value="Update" />
      </form>
      </div>
      </main>);
+     
     
 }
 
