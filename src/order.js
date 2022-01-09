@@ -15,6 +15,7 @@ export default function Order(){
    const [sugar,setSugar] = useState(100);
    const [price,setPrice] = useState(updatePrice());
    let c = toppings_checked;
+   let cartnum = null;
   
    //setsetChecked(c);
    //console.log(toppings_checked);
@@ -70,10 +71,12 @@ export default function Order(){
             new Server().addtoCart(o);
         }
         console.log(JSON.stringify(o));
+        document.getElementById("cartnum").textContent = new Server().CartItems.length;
 
     }
      return (<main>
          <div className='wrapper'>
+             <nav><Link to="/menu">menu</Link>/{iteminfo.title}</nav>
          <h1>{iteminfo.title}</h1>
      
      <form onSubmit={handleSubmit}>

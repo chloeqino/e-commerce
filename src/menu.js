@@ -28,9 +28,14 @@ class Menu extends React.Component{
         };
         
         this.items = this.renderItems();
-        console.log(this.items);
+        console.log(this.props);
         //new Server().emptyCart();
         
+    }
+    componentDidMount(){
+        var cartnum = document.getElementById("cartnum");
+        console.log(cartnum);
+       // console.log(this.props.location.state);
     }
     renderItems(){
        return Object.keys(this.state.items).map(

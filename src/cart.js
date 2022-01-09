@@ -9,12 +9,20 @@ import EditOrder from './edititem.js';
          this.state = {items:this.server.CartItems};
          console.log("item"+this.state.items);
          this.cartitems = React.createRef();
+         this.cartnum = null;
+        
+     }
+     componentDidMount(){
+        this.cartnum = document.getElementById("cartnum").textContent;
+        console.log(this.cartnum);
      }
      deleteitem(i){
         console.log("index"+i);
         console.log(this.cartitems.current);
         this.server.deleteCartItem(i);
         this.setState({items:this.server.CartItems});
+        //this.cartnum = this.state.items.length;
+        document.getElementById("cartnum").textContent = new Server().CartItems.length;
      }
      renderCartItems(){
          if(this.state.items.length>0){
@@ -39,6 +47,7 @@ import EditOrder from './edititem.js';
      emptyCart = () => {
         new Server().emptyCart();
         this.setState({items:this.server.CartItems});
+        document.getElementById("cartnum").textContent = new Server().CartItems.length;
      }
      render(){
          return (<div>
