@@ -30,11 +30,12 @@ nav .nav-item{
 #menu > .wrapper{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 .item{
     padding: 12px;
-    width: 34%;
-    margin: 13px;
+    width: 33%;
+    
 }
 .topping{
     display: inline-table;
@@ -62,17 +63,87 @@ input:checked+label{
 
 .cartitem .topping{
     display: inline-table;
-    padding: 6px 12px;
-    background-color: var(--bobapink);
-    border: 1px solid;
+    padding: 6px 0px;
+   
+    
     margin-right: 4px;
-    color: white;
+    
     border-radius: 15%;
 
 }
+.cartitem .topping::after{
+    display: inline-table;
+    content: ",";
 
+}
+.cartitem .topping:last-of-type::after{
+    display: inline-table;
+    content: "";
+
+}
+.cartitem .iteminfo{
+    display: block;
+    text-decoration: none;
+   color: inherit;
+}
+ 
 .cartitem{
     margin-bottom: 10px;
-    display: table;
-    transition-duration: 0.2s;
+    display: block;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    position: relative;
+    top: 0;
+    width: 100%;
+    transform-origin:center;
+    -webkit-transform-origin:center;
+    padding: 12px;
+    opacity: 1;
+    overflow: hidden;
+    border:1px solid rgb(233, 225, 229);
+    
+}
+.cartitem.hide{
+  opacity: 0;
+  transform: scaleY(0);
+  -webkit-transform: scaleY(0);
+  padding: 0;
+  height: 0;
+  transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-in;
+  margin: 0;
+  border:none
+}
+
+.cartitem.fadein{
+    animation: grow 0.2s ease-in 1 normal forwards;
+    -webkit-animation: grow 0.2s ease-in 1 normal forwards;
+    transform: scaleY(0); 
+    opacity: 0;
+    padding: 0;
+    border: none;
+    transform-origin:center;
+}
+@keyframes grow {
+    from{
+        transform: scaleY(0); 
+        -webkit-transform: scaleY(0); 
+        opacity: 0;
+        padding: 0;
+        border: none;
+        transform-origin:center;
+        -webkit-transform-origin:center;
+        
+    }to{
+        transform: scaleY(1);
+        -webkit-transform: scaleY(1);
+        opacity: 1;
+        padding: 12px;
+       border: initial;
+       transform-origin:center;
+       -webkit-transform-origin:center;
+    }
+    
 }

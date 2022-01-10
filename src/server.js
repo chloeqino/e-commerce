@@ -95,6 +95,21 @@ class Server{
         });
         this.myStorage.setItem("cart",JSON.stringify(items));
     }
+    duplicateCartItem(orderId){
+        let items = this.myStorage.getItem("cart");
+        items = JSON.parse(items);
+        for (let i =0; i<items.length;i++){
+            if(items[i].id==orderId){
+                let o = JSON.parse(JSON.stringify(items[i]));
+                o["id"] =  this.OrderId;
+                
+                items.splice(i,0,o);
+                console.log(items);
+                this.myStorage.setItem("cart",JSON.stringify(items));
+                break;
+            }
+        }
+    }
     get CartItems(){
         if(this.myStorage.getItem("cart")){
         let items = JSON.parse(this.myStorage.getItem("cart"));
@@ -129,7 +144,7 @@ class Server{
         console.log(this.myStorage.getItem('cart'));
         let currentorders = JSON.parse(this.myStorage.getItem('cart'));
         
-        currentorders.push(o);
+        currentorders.unshift(o);
        this.myStorage.setItem("cart",JSON.stringify(currentorders));
     }
 }   
