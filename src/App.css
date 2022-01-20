@@ -1,22 +1,136 @@
 :root{
-    --bobapink:rgb(229, 160, 160);
+    --bobapink:#F9B9BB;
+    --secondary: #843442;
+    --hotpink:#FB9CAD;
+    --cream:#FFF6F1;
 }
 * {
     box-sizing: border-box;
     padding: 0;
+    margin: 0;
+    
     }
     body{
     padding: 0;
     margin: 0;
+    min-height: 100%;
     }
 html{
     font-family: sans-serif;
+    min-height: 100%;
+}
+.svg-container{
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    display: inline-block;
+    padding-bottom: 100%;
+    
+    z-index: 1;
+    left: -10%;
 }
 
+.svg-wave{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#root{
+    display: block;
+    width: 100%;
+    min-height: 100%;
+}
+header{
+min-height: 100vh;
+position: relative;
+
+width: 100%;
+display: block;
+}
+header#hero{
+    background: var(--cream);
+}
+header#hero h1{
+    color: var(--hotpink);
+}
+header > .wrapper{
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   z-index: 20;
+   flex-direction: row;
+   position: relative;
+   justify-content: space-between;
+   width: 65%;
+   padding-top: 5%;
+
+}
+#main-nav .right{
+    font-size: 20px;
+}
+#cart{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size:2em;
+    
+}
+#cart #cartnum{
+    display: table;
+    padding: 0;
+    font-size: 0.3em;
+    position: relative;
+    top: 5px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    padding: 0.3em 0.6em;
+    z-index: 1;
+    color: white;
+}
+#carticon{
+    text-align: center;
+    position: relative;
+ z-index: 2;
+    top: -8px;
+    left: -2px;
+    fill: var(--hotpink);
+}
+header #intro{
+    font-size: 4vw;
+}
+img#bobaimg{
+    width: 18vw;
+    transform: rotate(-25deg) scaleX(-1);
+    position: relative;
+    right: 2%;
+}
+
+#main-nav{
+    position:fixed;
+    z-index: 100;
+    width: 100%;
+}
+section, main, #cartlist{
+  position: relative;
+  padding-top: 70px;
+}
+#main-nav > .wrapper{
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    
+}
 nav .nav-item{
     display: inline-table;
-    padding: 4px 12px;
-
+    padding: 10% 12px;
+    text-decoration: none;
+font-size: 1.4em;
+color: var(--secondary);
 }
 
 .nav-item.active{

@@ -70,7 +70,7 @@ import EditOrder from './edititem.js';
         document.getElementById("cartnum").textContent = new Server().CartItems.length;
      }
      render(){
-         return (<div>
+         return (<div id="cartlist">
              <div className="wrapper">
                  <Link to = "/menu">Back to menu</Link>
              <button onClick = {this.emptyCart}>Clear</button>

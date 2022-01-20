@@ -93,6 +93,7 @@ class Server{
         items = items.filter((e,i)=>{
             return e.id!=index;
         });
+        
         this.myStorage.setItem("cart",JSON.stringify(items));
     }
     duplicateCartItem(orderId){
