@@ -19,10 +19,10 @@ class Navbar extends React.Component{
             <div className='wrapper'>
                 <div className="left">
           <NavLink to="/e-commerce/" className='nav-item'>Home</NavLink>
-          <NavLink to="/menu" className='nav-item'>Menu</NavLink>
+          <NavLink to="/e-commerce/menu" className='nav-item'>Menu</NavLink>
           </div>
           <div className="right">
-          <NavLink to="/cart" className='nav-item' id="cart"><span id="cartnum">{this.server.CartItems.length}</span><AiOutlineShoppingCart id="carticon"/></NavLink>
+          <NavLink to="/e-commerce/cart" className='nav-item' id="cart"><span id="cartnum">{this.server.CartItems.length}</span><AiOutlineShoppingCart id="carticon"/></NavLink>
           </div>
           </div>
           </nav>

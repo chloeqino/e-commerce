@@ -4,7 +4,7 @@ import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 class Item extends React.Component{
     constructor(props){
         super(props)
-        this.itemUrl = '/orderdetail/'+this.props.id;
+        this.itemUrl = '/e-commerce/orderdetail/'+this.props.id;
     }
     orderItem=()=>{
         console.log(this.props.id);

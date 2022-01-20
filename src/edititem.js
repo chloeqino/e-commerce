@@ -84,7 +84,7 @@ export default function EditOrder(){
         });
         console.log(o);
         myserver.EditItem(id,updatesugar,updatetoppings);
-        navigate("/cart");
+        navigate("/e-commerce/cart");
 
         /*
        
@@ -99,7 +99,7 @@ export default function EditOrder(){
     }
      return (<main>
          <div className='wrapper'>
-             <Link to="/cart" id="back2cart"> &lt;- back to cart</Link>
+             <Link to="/e-commerce/cart" id="back2cart"> &lt;- back to cart</Link>
          <h1>{itemname}</h1>
      
      <form onSubmit={handleSubmit}>

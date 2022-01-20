@@ -76,7 +76,7 @@ export default function Order(){
     }
      return (<main>
          <div className='wrapper'>
-             <nav><Link to="/menu">menu</Link>/{iteminfo.title}</nav>
+             <nav><Link to="/e-commerce/menu">menu</Link>/{iteminfo.title}</nav>
          <h1>{iteminfo.title}</h1>
      
      <form onSubmit={handleSubmit}>

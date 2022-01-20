@@ -43,7 +43,7 @@ import EditOrder from './edititem.js';
      renderCartItems(){
          if(this.state.items.length>0){
         return this.state.items.map((e,i)=>{
-            let editurl = '/edititem/'+e.id;
+            let editurl = '/e-commerce/edititem/'+e.id;
             return (<div id={e.id} className="cartitem" ref={this.cartitems}>
                 <Link to={editurl} className="iteminfo">
                 <h3>{this.server.Items[e.itemid].title}</h3>
@@ -59,7 +59,7 @@ import EditOrder from './edititem.js';
         });}
         return (<div>nothing here
             <br/>
-            <Link to="/menu" className='nav-item'>Explore the menu</Link>
+            <Link to="/e-commerce/menu" className='nav-item'>Explore the menu</Link>
         </div>
             
             );
@@ -72,7 +72,7 @@ import EditOrder from './edititem.js';
      render(){
          return (<div id="cartlist">
              <div className="wrapper">
-                 <Link to = "/menu">Back to menu</Link>
+                 <Link to = "/e-commerce/menu">Back to menu</Link>
              <button onClick = {this.emptyCart}>Clear</button>
          <h1>Cart</h1>
          <div id="cartitems">

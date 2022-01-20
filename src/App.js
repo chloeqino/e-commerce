@@ -26,7 +26,7 @@ return (<header id="hero">
        <div className="wrapper">
          <div id="intro">
  <h1>QC Boba</h1>
- <Link to="/menu" className='menuBtn'>Menu</Link>
+ <Link to="/e-commerce/menu" className='menuBtn'>Menu</Link>
  </div>
  <img id="bobaimg" src={require('./assets/bobapink.png')}></img>
  </div>
@@ -56,12 +56,12 @@ class App extends React.Component{
        
        <Routes>
        <Route path='/e-commerce/' element={<Home />}></Route>
-                 <Route exact path='/cart' element={<Cart />}></Route>
-                 <Route path='/menu' element={<Menu />}></Route>
-                 <Route path='/orderdetail' element={<Order />}>
+                 <Route exact path='/e-commerce/cart' element={<Cart />}></Route>
+                 <Route path='/e-commerce/menu' element={<Menu />}></Route>
+                 <Route path='/e-commerce/orderdetail' element={<Order />}>
                    <Route path=":itemid" element={<Order />}></Route>
                  </Route>
-                 <Route path='/edititem' element={<EditOrder />}>
+                 <Route path='/e-commerce/edititem' element={<EditOrder />}>
                    <Route path=":orderid" element={<EditOrder />}></Route>
                  </Route>
                 
