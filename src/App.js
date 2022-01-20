@@ -55,7 +55,7 @@ class App extends React.Component{
         <Navbar />
        
        <Routes>
-       <Route exact path='/home' element={<Home />}></Route>
+       <Route path='/e-commerce/' element={<Home />}></Route>
                  <Route exact path='/cart' element={<Cart />}></Route>
                  <Route path='/menu' element={<Menu />}></Route>
                  <Route path='/orderdetail' element={<Order />}>
