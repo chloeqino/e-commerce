@@ -6,18 +6,21 @@ Note: This website currently does not have a backend and all date is stored loca
 
 ## Live demo
 
-]]
-
 This site is live at\
 [http://localhost:3000/e-commerce/](http://localhost:3000/e-commerce/)
 
 
 ## Deploy Locally
 
-To deploy this app locally, run these following command lines on Terminal:
+To deploy this app locally, first download or clone this repository by running the below command line on Terminal:
+### `git clone https://github.com/chloeqino/e-commerce qcboba`
+The folder named "qcboba" will then be created on your computer! Then change to the project repository by running
+### `cd qcboba`
+
+Now run these following command lines on Terminal:
 ### `npm install`
 and then
-## `npm start`
+### `npm start`
 
 The app will then be opened at [http://localhost:3000/e-commerce/](http://localhost:3000/e-commerce/)!
 
