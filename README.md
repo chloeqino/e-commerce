@@ -7,7 +7,7 @@ Note: This website currently does not have a backend and all date is stored loca
 ## Live demo
 
 This site is live at\
-[http://localhost:3000/e-commerce/](http://localhost:3000/e-commerce/)
+[https://chloeqino.github.io/e-commerce/](https://chloeqino.github.io/e-commerce/)
 
 
 ## Deploy Locally
