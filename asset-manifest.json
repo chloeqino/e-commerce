@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/e-commerece/static/css/main.95b2f657.css",
+    "main.js": "/e-commerece/static/js/main.4c6bf5ea.js",
+    "static/media/bobapink.png": "/e-commerece/static/media/bobapink.092abe9562a0d9472f13.png",
+    "index.html": "/e-commerece/index.html",
+    "main.95b2f657.css.map": "/e-commerece/static/css/main.95b2f657.css.map",
+    "main.4c6bf5ea.js.map": "/e-commerece/static/js/main.4c6bf5ea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.95b2f657.css",
+    "static/js/main.4c6bf5ea.js"
+  ]
+}
