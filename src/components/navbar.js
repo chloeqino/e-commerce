@@ -18,7 +18,7 @@ class Navbar extends React.Component{
             <nav id="main-nav">
             <div className='wrapper'>
                 <div className="left">
-          <NavLink to="/e-commerce" className='nav-item'>Home</NavLink>
+          <NavLink to="/e-commerce/" className='nav-item'>Home</NavLink>
           <NavLink to="/menu" className='nav-item'>Menu</NavLink>
           </div>
           <div className="right">
