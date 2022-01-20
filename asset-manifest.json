@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/e-commerce/static/css/main.95b2f657.css",
-    "main.js": "/e-commerce/static/js/main.a6d09e6c.js",
+    "main.js": "/e-commerce/static/js/main.df5e4fed.js",
     "static/media/bobapink.png": "/e-commerce/static/media/bobapink.092abe9562a0d9472f13.png",
     "index.html": "/e-commerce/index.html",
     "main.95b2f657.css.map": "/e-commerce/static/css/main.95b2f657.css.map",
-    "main.a6d09e6c.js.map": "/e-commerce/static/js/main.a6d09e6c.js.map"
+    "main.df5e4fed.js.map": "/e-commerce/static/js/main.df5e4fed.js.map"
   },
   "entrypoints": [
     "static/css/main.95b2f657.css",
-    "static/js/main.a6d09e6c.js"
+    "static/js/main.df5e4fed.js"
   ]
 }
