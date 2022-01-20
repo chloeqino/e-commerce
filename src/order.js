@@ -3,20 +3,30 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router,Routes, Route, Link,useParams } from 'react-router-dom';
 
 import Server from "./server";
-
-
+import Modal from 'react-modal';
+import MenuOrOrder from './components/MenuOrCart';
 export default function Order(){
 
     
    let id = useParams().itemid;
    const [itemid,setId] = useState(id);
    const [qty,setQty] = useState(1);
+   const [modalIsOpen, setIsOpen] = React.useState(false);
+   //Modal.setAppElement("#main");
    const [toppings_checked,setChecked] = useState(Array(new Server().Toppings.length).fill(false));
    const [sugar,setSugar] = useState(100);
    const [price,setPrice] = useState(updatePrice());
    let c = toppings_checked;
    let cartnum = null;
+   function openModal() {
+    setIsOpen(true);
+  }
+
   
+
+  function closeModal() {
+    setIsOpen(false);
+  }
    //setsetChecked(c);
    //console.log(toppings_checked);
   
@@ -72,10 +82,24 @@ export default function Order(){
         }
         console.log(JSON.stringify(o));
         document.getElementById("cartnum").textContent = new Server().CartItems.length;
+        openModal();
 
     }
      return (<main>
          <div className='wrapper'>
+            
+         <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Example Modal"
+      >
+          
+          <h4>Added to Cart!</h4>
+              <MenuOrOrder />
+          <button onClick={closeModal}>Close</button>
+          
+          </Modal>
+       <div id="main">modal</div>
              <nav><Link to="/e-commerce/menu">menu</Link>/{iteminfo.title}</nav>
          <h1>{iteminfo.title}</h1>
      

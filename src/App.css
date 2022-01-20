@@ -119,6 +119,30 @@ section, main, #cartlist{
   position: relative;
   padding-top: 70px;
 }
+.ReactModal__Overlay{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(211, 208, 205, 0.4) !important;
+}
+.popupModal{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    justify-content: space-around;
+    padding: 24px;
+}
+.ReactModal__Content{
+    width: 30%;
+    display: table;
+    top: 50% !important;
+    margin: 0 auto;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 20px 0;
+}
 #main-nav > .wrapper{
     display: flex;
     justify-content: space-between;
