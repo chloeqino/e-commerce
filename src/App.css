@@ -115,9 +115,12 @@ img#bobaimg{
     z-index: 100;
     width: 100%;
     background-color: white;
+    border-bottom: 2px solid var(--cream);
+   
 }
 #main-nav.clearBg{
     background-color: transparent;
+    border-bottom: none;
 }
 
 section, main, #cartlist{
