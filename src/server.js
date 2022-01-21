@@ -5,22 +5,32 @@ class Server{
         "item00":{
             "id":"item00",
             "title":"Milk Tea",
-            "price":3.0
+            "price":3.0,
+            "imageUrl":require('./assets/bobapink.png')
         },
         "item01":{
             "id":"item01",
             "title":"Thai Tea",
-            "price":3.5
+            "price":3.5,
+            "imageUrl":require('./assets/thai.png')
         },
         "item02":{
             "id":"item02",
             "title":"Green Tea",
-            "price":2
+            "price":2,
+            "imageUrl":require('./assets/green.png')
         },
         "item03":{
             "id":"item03",
             "title":"Coconut Milk Tea",
-            "price":4
+            "price":4,
+            "imageUrl":require('./assets/coconut.png')
+        },
+        "item04":{
+            "id":"item04",
+            "title":"Wicked Bubble Tea",
+            "price":4.5,
+            "imageUrl":require('./assets/magic.png')
         }
     };
     toppings = [

@@ -12,6 +12,10 @@ class Navbar extends React.Component{
     constructor(props){
         super(props)
         this.server = new Server();
+        console.log("update");
+    }
+    componentDidUpdate(){
+       
     }
     render(){
         return (

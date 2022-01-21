@@ -99,7 +99,7 @@ export default function Order(){
           <button onClick={closeModal}>Close</button>
           
           </Modal>
-       <div id="main">modal</div>
+      
              <nav><Link to="/e-commerce/menu">menu</Link>/{iteminfo.title}</nav>
          <h1>{iteminfo.title}</h1>
      

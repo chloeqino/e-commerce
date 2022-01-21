@@ -9,6 +9,19 @@ import Navbar from "./components/navbar";
 
 import './App.css';
 class Home extends React.Component{
+  constructor(props){
+    super(props);
+    //console.log("hello from home");
+   
+  } 
+  componentDidMount() {
+    //console.log(Object.keys(this.server.items));
+    document.getElementById("main-nav").classList.add("clearBg");
+   }
+  componentWillUnmount(){
+    console.log("bye");
+    document.getElementById("main-nav").classList.remove("clearBg");
+  }
     render(){
 return (<header id="hero">
   <div class="svg-container">
