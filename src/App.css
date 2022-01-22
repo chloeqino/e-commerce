@@ -125,7 +125,7 @@ img#bobaimg{
 
 section, main, #cartlist{
   position: relative;
-  padding-top: 90px;
+  padding-top: 97px;
 }
 .ReactModal__Overlay{
     display: flex;
@@ -177,6 +177,7 @@ color: var(--secondary);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+
 }
 .item{
     padding: 12px;
@@ -186,7 +187,17 @@ color: var(--secondary);
     margin-bottom: 2em;
     text-decoration: none;
     color: rgb(54, 47, 54);
+    display: inline-table;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in;
+    transform-origin: top;
     
+}
+.item:hover{
+   opacity: 0.8;
+   filter: saturate(2);
+   color: rgb(88, 71, 88);
+   transform: scale(1.06);
 }
 .item .imgContainer{
     
