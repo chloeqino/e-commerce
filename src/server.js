@@ -31,6 +31,12 @@ class Server{
             "title":"Wicked Bubble Tea",
             "price":4.5,
             "imageUrl":require('./assets/magic.png')
+        },
+        "item05":{
+            "id":"item05",
+            "title":"Rose Bubble Tea",
+            "price":4,
+            "imageUrl":require('./assets/rose.png')
         }
     };
     toppings = [

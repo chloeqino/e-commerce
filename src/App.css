@@ -1,8 +1,9 @@
 :root{
     --bobapink:#F9B9BB;
-    --secondary: #843442;
+    /*--secondary: #843442;*/
     --hotpink:#FB9CAD;
     --cream:#FFF6F1;
+    --secondary: #772234;
 }
 * {
     box-sizing: border-box;
@@ -38,7 +39,9 @@ html{
     position: absolute;
     top: 0;
     left: 0;
+   
 }
+
 #root{
     display: block;
     width: 100%;
@@ -72,6 +75,10 @@ header > .wrapper{
 #main-nav .right{
     font-size: 20px;
 }
+#main-nav .left{
+    display: inline-flex;
+    align-items: center;
+}
 #cart{
     display: flex;
     align-items: center;
@@ -80,17 +87,29 @@ header > .wrapper{
     font-size:2em;
     
 }
+.closeBtn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 5px 10px;
+    padding: 0.1rem 0.2rem;
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
+}
 #cart #cartnum{
     display: table;
     padding: 0;
     font-size: 0.3em;
     position: relative;
     top: 5px;
-    background-color: var(--secondary);
+    background-color: var(--hotpink);
     border-radius: 50%;
-    padding: 0.3em 0.6em;
-    z-index: 1;
-    color: white;
+    padding: 0.4em 0.4em;
+   
+   
+    z-index: 3;
+    color: var(--secondary);
 }
 #carticon{
     text-align: center;
@@ -98,10 +117,11 @@ header > .wrapper{
  z-index: 2;
     top: -8px;
     left: -2px;
-    fill: var(--hotpink);
+    fill: var(--secondary);
 }
 header #intro{
     font-size: 4vw;
+    padding-top: 10%;
 }
 img#bobaimg{
     width: 18vw;
@@ -132,6 +152,7 @@ section, main, #cartlist{
     align-items: center;
     justify-content: center;
     background: rgba(211, 208, 205, 0.4) !important;
+    z-index: 101;
 }
 .popupModal{
     display: flex;
@@ -142,14 +163,14 @@ section, main, #cartlist{
     padding: 24px;
 }
 .ReactModal__Content{
-    width: 30%;
+    width: 40%;
     display: table;
     top: 50% !important;
     margin: 0 auto;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     text-align: center;
-    padding: 20px 0;
+    padding: 20px 10px;
 }
 #main-nav > .wrapper{
     display: flex;
@@ -172,6 +193,7 @@ color: var(--secondary);
     
     width: 75%;
     margin: 0 auto;
+    min-width: 200px
 }
 #menu > .wrapper{
     display: flex;
@@ -191,13 +213,116 @@ color: var(--secondary);
     transition-duration: 0.1s;
     transition-timing-function: ease-in;
     transform-origin: top;
+    -webkit-transition-duration: 0.1s;
+    -webkit-transition-timing-function: ease-in;
+    -webkit-transform-origin: top;
     
 }
-.item:hover{
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    width: 100%;
+    
+}
+.row .col{
+    display: inline-table;
+    width: 40%;
+}
+#orderform{
+    margin-top: 23px;
+    font-size: 1.6vw;
+    min-height: 70vh;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+ padding: 32px;
+ border-radius: 10px;
+ width: 90%;
+ display: inline-flex;
+
+}
+main#orderpage{
+    
+    padding-bottom: 4%;   
+    min-height: 100vh;
+}
+#orderpage .wrapper{
+    
+    
+    
+}
+#orderform h2{
+    
+}
+#itemImgContainer{
+    width: 40%;
+    padding-left: 10px;
+    min-width: 200px;
+    margin-bottom: 20px;
+   
+}
+#itemImgContainer > img{
+    width: 90%;
+    display: table;
+   
+}
+#orderform #form{
+    padding-top: 4px;
+    width: auto;
+    padding-left: 20%;
+   
+   
+}
+#form1{
+    font-size: 1.6vw;
+    padding-right: 12px;
+    position: relative;
+    z-index: 10;
+    margin-top: -80px;
+    background: white;
+    border-radius: 12px;
+
+}
+
+#form1 fieldset{
+    
+    width: 100%;
+    display: inline-table;
+    border:none;
+}
+#form1 fieldset legend{
+    padding-top: 32px;
+    font-weight: 900;
+}
+
+
+#orderpage input[type=submit]{
+    padding: 12px;
+    background-color: var(--hotpink);
+   display: block;
+    border: none;
+   border-radius: 1px;
+   font-size: 1.2em;
+   color: white;
+   width: 100%;
+  
+   position: relative;
+   
+}
+form p{
+    margin-bottom: 32px;
+    margin-top: 20px;
+}
+.item:hover, #itemImg:hover{
    opacity: 0.8;
    filter: saturate(2);
+   -webkit-filter: saturate(2);
    color: rgb(88, 71, 88);
-   transform: scale(1.06);
+   transform: scale(1.02);
+   -webkit-transform:scale(1.02);
+}
+.iteminfo:hover{
+    cursor: pointer;
 }
 .item .imgContainer{
     
@@ -230,14 +355,14 @@ margin: 0 auto;
 .topping label{
     display: inline-table;
     padding: 12px;
-    color: var(--bobapink);
+    color: var(--hotpink);
     border: 1px solid;
     margin-right: 4px;
-    
+    border-radius: 22%;
 }
-input:checked+label{
+input[type=checkbox]:checked+label{
 
-    background-color: var(--bobapink);
+    background-color: var(--hotpink);
     color:white;
 }
 
@@ -261,8 +386,21 @@ input:checked+label{
     content: "";
 
 }
+main#cartitems{
+    width: 70%;
+    left: 30%;
+    display: inline-block;
+    padding-top: 0;
+    height: 80vh;
+    overflow-y: scroll;
+    position: relative;
+    background: url("./assets/pinkleaf.png") 100% 100%  no-repeat;
+    background-size: 25vh;
+    background-position-y: 100%;
+    
+}
 .cartitem .iteminfo{
-    display: block;
+    display: flex;
     text-decoration: none;
    color: inherit;
 }
@@ -274,14 +412,20 @@ input:checked+label{
     -webkit-transform: scale(1);
     position: relative;
     top: 0;
-    width: 100%;
+   background-color: rgba(255,255,255,0.75);
     transform-origin:center;
     -webkit-transform-origin:center;
     padding: 12px;
     opacity: 1;
     overflow: hidden;
-    border:1px solid rgb(233, 225, 229);
     
+    border-radius: 12px;
+    width: 100%;
+    padding: 12px 60px;
+    
+}
+.cartitem.hide .iteminfo img.col{
+  opacity: 0;
 }
 .cartitem.hide{
   opacity: 0;
@@ -294,9 +438,11 @@ input:checked+label{
   transition-timing-function: ease-out;
   -webkit-transition-timing-function: ease-in;
   margin: 0;
-  border:none
+  border:none;
 }
-
+.cartitem.fadein .iteminfo img.col{
+    opacity: 0;
+}
 .cartitem.fadein{
     animation: grow 0.2s ease-in 1 normal forwards;
     -webkit-animation: grow 0.2s ease-in 1 normal forwards;
@@ -305,6 +451,47 @@ input:checked+label{
     padding: 0;
     border: none;
     transform-origin:center;
+}
+.iteminfo{
+    align-items: center;
+    cursor: pointer;
+    display: table;
+   
+}
+.iteminfo img.col{
+    width: 8%;
+    display: inline-table;
+}
+.iteminfo .textinfo{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+    width: 100%;
+    text-align: right;
+   
+}
+.addDeleteBtns{
+    padding-left: 10%;
+    margin-left: 10%;
+    padding-top: 12px;
+    text-align: right;
+}
+.addDeleteBtns button{
+    margin-right: 12px;
+    display: inline-table;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border-radius: 50%;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+}
+.addDeleteBtns button:hover{
+    opacity: 0.6;
+}
+#emotyCartbtn{
+    margin: 12px 0;
 }
 @keyframes grow {
     from{
@@ -324,6 +511,72 @@ input:checked+label{
        border: initial;
        transform-origin:center;
        -webkit-transform-origin:center;
+    }
+    
+}
+#cartlist{
+   
+    background: linear-gradient(to right, var(--bobapink) 30%, var(--cream) 0);
+    min-height: 100vh;
+}
+side h1{
+    display: table;
+    width: auto;
+}
+.vcenter{
+    position: absolute;
+    top: 50vh;
+}
+#side .vcenter em{
+    font-weight: 900;
+    font-size: 4rem;
+    font-style: normal;
+}
+@media only screen and (orientation: portrait)
+{
+    .item{
+        padding: 4px;
+        width: 45%;
+        
+        
+    }
+    .item img{
+        width: 60%;
+   
+    }
+    .wrapper{
+        width: 85%;
+    }
+    
+    #orderform{
+        margin-top: 23px;
+        font-size: 4vw;
+        min-height: auto;
+        align-items: unset;
+        flex-direction: column;
+    }
+    #itemImgContainer{
+        width: 100%;
+        padding-left: 10px;
+        min-width: 400px;
+    }
+    #itemImgContainer > img{
+        width: 20%;
+        display: table;
+       
+    }
+    #orderform #form{
+        padding-top: 10px;
+        width: 100%;
+        padding-left: 0;
+    }
+    .ReactModal__Content{
+        width: 70%;
+        display: table;
+        
+    }
+    #orderpage input[type=submit]{
+        width: auto;
     }
     
 }

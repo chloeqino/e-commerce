@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Server from "./server";
 import EditOrder from './edititem.js';
+
  class Cart extends React.Component{
      constructor(props){
          super(props);
@@ -45,16 +46,20 @@ import EditOrder from './edititem.js';
         return this.state.items.map((e,i)=>{
             let editurl = '/e-commerce/edititem/'+e.id;
             return (<div id={e.id} className="cartitem" ref={this.cartitems}>
-                <Link to={editurl} className="iteminfo">
+                <Link to={editurl} className="iteminfo row">
+                    <img src={this.server.Items[e.itemid].imageUrl} className="col"></img>
+                    <div className="col textinfo">
                 <h3>{this.server.Items[e.itemid].title}</h3>
                 <p>Sugar Level: {e.sugar}%</p>
                 <p>Toppings:{e.toppings.map((e=>{
                     return <span className="topping" key={e.id}>{e.name}</span>;
                 }))}</p>
+                </div>
                 </Link>
-                
-                <button onClick={()=>{this.deleteitem(e.id,i)}}>delete</button>
-                <button onClick={()=>this.additem(e.id,i)}>add</button>
+                <div className="addDeleteBtns">
+                <button onClick={()=>{this.deleteitem(e.id,i)}}>-</button>
+                <button onClick={()=>this.additem(e.id,i)}>+</button>
+                </div>
             </div>)
         });}
         return (<div>nothing here
@@ -65,6 +70,7 @@ import EditOrder from './edititem.js';
             );
      }
      emptyCart = () => {
+         // <button onClick = {this.emptyCart} id="emotyCartbtn">Clear</button>
         new Server().emptyCart();
         this.setState({items:this.server.CartItems});
         document.getElementById("cartnum").textContent = new Server().CartItems.length;
@@ -72,12 +78,20 @@ import EditOrder from './edititem.js';
      render(){
          return (<div id="cartlist">
              <div className="wrapper">
-                 <Link to = "/e-commerce/menu">Back to menu</Link>
-             <button onClick = {this.emptyCart}>Clear</button>
-         <h1>Cart</h1>
-         <div id="cartitems">
-            {this.renderCartItems()}
-            </div>
+
+                 <div id="side">
+                
+             
+<div className="vcenter">
+         <em>Cart</em><br/>
+        
+         </div>
+         </div>
+         <main id="cartitems">
+         <Link to = "/e-commerce/menu">Back to menu</Link><br/>
+            {this.renderCartItems()} 
+            </main>
+          
             </div>
          </div>);
      }

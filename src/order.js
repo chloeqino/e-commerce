@@ -85,9 +85,7 @@ export default function Order(){
         openModal();
 
     }
-     return (<main>
-         <div className='wrapper'>
-            
+     return (<main id='orderpage'>
          <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -96,14 +94,28 @@ export default function Order(){
           
           <h4>Added to Cart!</h4>
               <MenuOrOrder />
-          <button onClick={closeModal}>Close</button>
+          <button onClick={closeModal} className='closeBtn'>X</button>
           
           </Modal>
+         <div className='wrapper'>
+            
+         
       
              <nav><Link to="/e-commerce/menu">menu</Link>/{iteminfo.title}</nav>
-         <h1>{iteminfo.title}</h1>
+            
+             
+             <div id="orderform" className='row'>
+             <div className='col' id='itemImgContainer'>
+             <img src={iteminfo.imageUrl} alt={iteminfo.title} id='itemImg'></img>
+             </div>
+             <div id='form'>
+                 
+         
      
-     <form onSubmit={handleSubmit}>
+     <form onSubmit={handleSubmit} id='form1'>
+      <fieldset> 
+          
+     <legend>{iteminfo.title}</legend>
      <input type="hidden" name="itemId" value={itemid} />
      
     
@@ -136,8 +148,18 @@ export default function Order(){
       </p>
       <p> select toppings: (Optional)<br />
          {renderToppings()}</p>
-      <input type="submit" value="Order" />
+         <input type="submit" value="Add to Cart" form='form1'/>
+         </fieldset> 
+         
+     
+     
+     
      </form>
+    
+     </div>
+   
+     </div>
+     
      </div>
      </main>);
     
