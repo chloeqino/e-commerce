@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import {
   BrowserRouter as Router,
@@ -22,6 +22,10 @@ export default function Order() {
   );
   const [sugar, setSugar] = useState(100);
   const [price, setPrice] = useState(updatePrice());
+  useEffect(() => {
+    console.log("qty chagned" + qty);
+    setPrice(updatePrice());
+  }, [qty]);
   let c = toppings_checked;
   let cartnum = null;
   function openModal() {
@@ -40,6 +44,7 @@ export default function Order() {
     console.log(e.target.value);
   }
   function updatePrice() {
+    console.log("updating price");
     return (
       (new Server().Items[id].price +
         0.5 * toppings_checked.filter(Boolean).length) *
@@ -188,7 +193,9 @@ export default function Order() {
                   </label>
                   {renderToppings()}
                 </p>
-                <input type="submit" value="Add to Cart" form="form1" />
+                <button type="submit" form="form1" key={price}>
+                  Add To Cart &#xB7; $ {price}
+                </button>
               </fieldset>
             </form>
           </div>

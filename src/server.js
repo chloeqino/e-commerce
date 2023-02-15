@@ -129,6 +129,18 @@ class Server {
       }
     }
   }
+
+  get TotalPrice() {
+    let price = 0;
+    if (this.myStorage.getItem("cart")) {
+      let items = JSON.parse(this.myStorage.getItem("cart"));
+      console.log(items);
+      for (let i = 0; i < items.length; i++) {
+        price += Number(items[i]["subtotal"]);
+      }
+    }
+    return price;
+  }
   get CartItems() {
     if (this.myStorage.getItem("cart")) {
       let items = JSON.parse(this.myStorage.getItem("cart"));
@@ -157,6 +169,7 @@ class Server {
     }
     let o = orderitem;
     o["id"] = this.OrderId;
+    o["subtotal"] = this.items[o["itemid"]].price + o["toppings"].length * 0.5;
     console.log(o);
     console.log(this.myStorage.getItem("cart"));
     let currentorders = JSON.parse(this.myStorage.getItem("cart"));
